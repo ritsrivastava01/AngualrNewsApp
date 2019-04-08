@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { Increment, Decrement, Reset, Default } from '../store/actions/counter.action';
-import { State } from '../store/reducers/counter.reducer';
+import { SectionLoad } from '../store/actions/section.action';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +11,14 @@ import { State } from '../store/reducers/counter.reducer';
 })
 export class HeaderComponent {
 
-  count$: Observable<State>;
+  count$: Observable<any>;
   constructor(private store: Store<{}>) {
-    store.pipe(select('data')).subscribe(x => console.log(x));
-    this.count$ = store.pipe(select('data'));
+    this.store.dispatch(new SectionLoad());
+    this.count$ = store.pipe(select('sectionReducer'));
   }
 
   increment = () => this.store.dispatch(new Increment());
   decrement = () => this.store.dispatch(new Decrement());
-  reset = () => true;// this.store.dispatch(new ());
+  reset = () => this.store.dispatch(new Reset({ home: 0, away: 0 }));
   default = () => this.store.dispatch(new Default());
 }

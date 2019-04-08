@@ -10,7 +10,7 @@ import { NewsComponent } from './news/news.component';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import { SectionsComponent } from './sections/sections.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { counterReducer } from './store/reducers/counter.reducer';
+import { sectionReducer } from './store/reducers/section.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,7 @@ import { counterReducer } from './store/reducers/counter.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ 'data': counterReducer })
+    StoreModule.forRoot({sectionReducer })
     // StoreModule.forRoot(reducers, { metaReducers })
   ],
   providers: [],

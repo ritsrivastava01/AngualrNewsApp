@@ -1,5 +1,5 @@
 
-import { ActionTypes, ActionsUnion } from '../actions/counter.action';
+/* import { ActionTypes, ActionsUnion } from '../actions/counter.action';
 
 export interface State {
     home: number;
@@ -11,10 +11,7 @@ export const initialState: State = {
     away: 0,
 };
 
-export function counterReducer (
-    state = initialState,
-    action: ActionsUnion
-): State {
+export function counterReducer(state = initialState, action: ActionsUnion): State {
     switch (action.type) {
         case ActionTypes.Increment: {
             return {
@@ -29,11 +26,13 @@ export function counterReducer (
             };
         }
         case ActionTypes.Reset:
-        return action.payload;
+            return action.payload;
 
+        case ActionTypes.Default:
+            return initialState;
     }
-
-
+}
+ */
 /* export function counterReducer(state = initialState, action: Action) {
 
     switch (action.type) {
