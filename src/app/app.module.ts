@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { metaReducers } from './reducers';
 import { HeaderComponent } from './header/header.component';
 import { NewsComponent } from './news/news.component';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import { SectionsComponent } from './sections/sections.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { counterReducer } from './store/reducers/counter.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot({ 'data': counterReducer })
+    // StoreModule.forRoot(reducers, { metaReducers })
   ],
   providers: [],
   bootstrap: [AppComponent]
